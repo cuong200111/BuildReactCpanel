@@ -1,0 +1,14 @@
+
+  useEffect(()=>{
+    const handlePopup = (e)=>{
+      if(activePopup.current && !activePopup.current.contains(e.target)){
+        activePopup.current.classList.remove('active')
+        console.log('suc poup')
+      }
+  }
+    document.addEventListener('click',handlePopup,true)
+
+    return ()=>{
+      document.removeEventListener('click',handlePopup)
+    }
+  },[])

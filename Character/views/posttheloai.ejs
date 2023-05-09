@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/c08976f15f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<%=baseCss%>">
+
+    <link rel="stylesheet" href="/css/postanime.css">
+
+</head>
+<style>
+    .loading {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+    }
+    
+    .loading.active {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .loader {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        border: 5px solid rgb(255, 17, 0);
+        border-radius: 50%;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        animation: rot5 1s infinite;
+    }
+    
+    @keyframes rot5 {
+        0% {
+            transform: rotate(0);
+        }
+        50% {
+            transform: rotate(180deg);
+            border-top-color: rgb(139, 46, 46);
+            border-bottom-color: rgb(243, 92, 33);
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<loading class="loading">
+    <div class="loader"></div>
+</loading>
+<script>
+    fetch('/').then(res => {
+        if (res.ok) {
+            document.querySelector('.loading').classList.add('active');
+        }
+
+    })
+</script>
+
+<body>
+    <a id="back" href="/admin"><button class="cta">
+        <span class="hover-underline-animation">Trở về Admin</span>
+        <svg viewBox="0 0 46 16" height="10" width="20" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+            <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+        </svg>
+    </button></a>
+    <form action="/posttheloai" method="post">
+        <div class="input-container">
+            <input name="theloai" type="text" id="input" required="">
+            <label for="input" class="label">Nhập thêm thể loại</label>
+            <div class="underline"></div>
+        </div>
+
+        <button id="add" type="submit">Xác Nhận Thêm</button>
+    </form>
+
+    <script src="/reload/reload.js"></script>
+</body>
+
+</html>

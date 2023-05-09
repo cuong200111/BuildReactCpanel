@@ -1,0 +1,12 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<main>
+  <h2>Beautiful Google Charts</h2>
+  <h5>Daily Page Hits</h5>
+  <div id="bar-chart"></div>
+  <h5>Traffic Over Time</h5>
+  <div id="line-chart"></div>
+  <h5>Page Hits per Country</h5>
+  <div id="pie-chart"></div>
+	<p>Google Charts can be <a href="https://google-developers.appspot.com/chart/">found here</a>.</p>
+	<p>An original pen by <a href="https://codepen.io/ejsado/">Eric</a>.</p>
+</main>

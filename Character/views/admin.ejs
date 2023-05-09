@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c08976f15f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+<style>
+    .loading {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+    }
+    
+    .loading.active {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .loader {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        border: 5px solid rgb(255, 17, 0);
+        border-radius: 50%;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        animation: rot5 1s infinite;
+    }
+    
+    @keyframes rot5 {
+        0% {
+            transform: rotate(0);
+        }
+        50% {
+            transform: rotate(180deg);
+            border-top-color: rgb(139, 46, 46);
+            border-bottom-color: rgb(243, 92, 33);
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<loading class="loading">
+    <div class="loader"></div>
+</loading>
+<script>
+    fetch('/').then(res => {
+        if (res.ok) {
+            document.querySelector('.loading').classList.add('active');
+        }
+
+    })
+</script>
+
+<body>
+    <a style="text-decoration: none;" href="/">
+        <button>
+            <span><i class="fa-solid fa-arrow-left"></i> Home</span>
+          </button>
+    </a>
+    <div class="main_admin">
+        <% mangs.forEach(item=>{%>
+
+            <a href="<%=item.link%>">
+                <div class="card-border">
+                    <div class="card-bg">
+                        <div class="container-logo">
+                            <div class="logo"></div>
+                            <div class="logo-inside">
+                                <div class="first"></div>
+                                <div class="second"></div>
+                            </div>
+                        </div>
+                        <div id="blur-area"></div>
+                        <div class="marquee">
+                            <div class="marquee__inner" aria-hidden="true">
+                                <span class="viper">viper viper viper viper</span>
+                                <span class="viper">viper viper viper viper</span>
+                                <span class="viper">viper viper viper viper</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mist-container">
+                        <div class="mist"></div>
+                    </div>
+                    <strong id="text-ext" class="bg-clip-text"><%=item.des%></strong>
+                    <strong id="text-border"><%=item.title%></strong>
+                </div>
+            </a>
+            <%})%>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+targetUrl - Địa chỉ URL mà bạn muốn chuyển thành ứng dụng.
+Tùy chọn cho các ứng dụng:
+name - Tên của ứng dụng.
+platform - Nền tảng đích (như mac, windows).
+arch - Kiến trúc đích (như x64, ia32, armv7l).
+appVersion - Phiên bản của ứng dụng của bạn.
+out - Thư mục đầu ra cho các file được sản xuất.
+overwrite - Ghi đè lên thư mục đầu ra nếu nó đã tồn tại.
+conceal - Ẩn thanh menu và hiển thị ứng dụng ngay khi khởi động.
+icon - Đường dẫn đến biểu tượng của ứng dụng.
+inject - Đường dẫn đến stylesheet hoặc script để chèn vào ứng dụng.
+counter - Hiển thị số lượng tab đang mở trên biểu tượng ứng dụng.
+Tùy chọn cho trình duyệt:
+userAgent - Giả mạo user agent.
+lang - Giả mạo header Accept-Language.
+internalUrls - Các đường dẫn mà Nativefier nên mở trong cửa sổ trình duyệt mặc định của máy tính.
+widevine - Cài đặt Widevine DRM.
+Tùy chọn khác:
+singleInstance - Giới hạn số lượng ứng dụng được mở ra cùng một lúc.
+tray - Cho phép ứng dụng hiển thị trên System Tray (khay hệ thống).
+bounce - Cho phép ứng dụng nhấp nháy icon khi có thông báo mới.
+startup - Khởi động ứng dụng cùng với hệ thống.
+verbose - Hiển thị các thông báo debug.
+
+
+full-screen
+maximize
+
+
+sua

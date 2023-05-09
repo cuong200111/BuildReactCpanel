@@ -1,0 +1,12 @@
+Layout tạm chỉnh sửa
+css admin tạm chỉnh sửa
+
+
+
+data user trong lay out 
+data admin trong app
+ const blob = new Blob([download.data], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+      FileSaver.saveAs(blob, `${docx}.docx`);
+
+
+import Slider from 'react-slick';

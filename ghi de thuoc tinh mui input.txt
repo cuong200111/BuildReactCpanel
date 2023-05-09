@@ -1,0 +1,23 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import TextField from "@material-ui/core/TextField";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+const theme = createMuiTheme({
+  overrides: {
+    MuiInput: {
+      formControl: {
+        borderBottom: "1px solid red"
+      }
+    }
+  }
+});
+function App() {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <TextField label="Label" />
+    </MuiThemeProvider>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);

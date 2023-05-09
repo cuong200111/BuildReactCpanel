@@ -1,0 +1,13 @@
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:calc(100vh  - 260px);
+  overflow:auto;  
+}
+#table-wrapper table {
+  width:100%;  
+}
+#table-wrapper-header table {
+  width:100%;  
+}

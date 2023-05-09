@@ -1,0 +1,4 @@
+<div class="wrap">
+  <h1>Animated Bar Graphs</h1>
+<div class="holder"><div class="bar cf" data-percent="85%"><span class="label">Photoshop</span></div><div class="bar cf" data-percent="75%"><span class="label light">Illustrator</span></div><div class="bar cf" data-percent="65%"><span class="label">Indesign</span></div><div class="bar cf" data-percent="90%"><span class="label light">HTML</span></div><div class="bar cf" data-percent="90%"><span class="label">CSS</span></div><div class="bar cf" data-percent="80%"><span class="label light">jQuery</span></div><div class="bar cf" data-percent="85%"><span class="label light">RWD</span></div><div class="bar cf" data-percent="75%"><span class="label">PHP</span></div><div class="bar cf" data-percent="80%"><span class="label light">WordPress</span></div><div class="bar cf" data-percent="70%"><span class="label">SASS/SCSS</span></div></div>
+  </div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll xuống dưới cùng</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam consequat ex in malesuada. Integer magna mi, convallis a magna vel, accumsan lobortis metus. Nam euismod nunc sed sem tempor, in bibendum massa sagittis. Duis eget orci elit. Nullam turpis arcu, tristique quis est ac, luctus iaculis ligula. Sed eu congue leo. Praesent non laoreet orci. Pellentesque ultricies elementum purus vel dictum. Curabitur in sapien lectus. Curabitur mauris nibh, posuere nec libero vel, pharetra suscipit metus.</p>
+    
+    <script>
+        window.onload = function() {
+            console.log(document.body.scrollHeight);
+            window.scrollTo(0,document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>

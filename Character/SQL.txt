@@ -1,0 +1,33 @@
+use database
+CREATE TABLE tacgia (
+idtacgia varchar(100) PRIMARY KEY CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, 
+tentacgia varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+);
+CREATE TABLE theloai (
+listtl varchar(100) PRIMARY KEY CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+);
+CREATE TABLE anime (
+tentruyen varchar(100) PRIMARY KEY CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+idtacgia varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+mont varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+theloai varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+FOREIGN KEY (idtacgia) REFERENCES tacgia(idtacgia),
+FOREIGN KEY (theloai) REFERENCES theloai (listtl)
+);
+CREATE TABLE admin (
+name varchar(100) PRIMARY KEY CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+pass varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+);
+
+INSERT INTO admin (name,pass) VALUES('anime2023',2372000);
+
+ALTER TABLE anime CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER DATABASE hhlzkewkhosting_nodejs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+express-pino-logger
+
+$db_host = '103.77.162.14'; // tên host
+$db_name = 'shopk175_shopacckatieu'; // tên cơ sở dữ liệu
+$db_user = 'shopk175_katieu'; // tên đăng nhập
+$db_pass = 'E{ROwtufyT-X'; // mật khẩu

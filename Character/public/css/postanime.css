@@ -1,0 +1,199 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+}
+
+#back {
+    position: absolute;
+    display: block;
+    top: 2%;
+    left: 80%;
+}
+
+.cta {
+    cursor: pointer;
+}
+
+.input-container {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+}
+
+.input-container input[type="text"] {
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.input-container .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input[type="text"]:focus~.label,
+.input-container input[type="text"]:valid~.label {
+    top: -20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus~.underline,
+.input-container input[type="text"]:valid~.underline {
+    transform: scaleX(1);
+}
+
+select {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
+}
+
+option {
+    color: #333;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+/* From uiverse.io by @Ali-Tahmazi99 */
+
+#add {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+#add::before,
+#add::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#add::before {
+    left: -10px;
+    background: #240046;
+}
+
+#add::after {
+    right: -10px;
+    background: #5a189a;
+}
+
+#add:hover::before,
+#add:hover::after {
+    width: 58%;
+}
+
+#add:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+}
+
+#add span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+.cta {
+    border: none;
+    background: none;
+}
+
+.cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+}
+
+.cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+@media only screen and (max-width: 600px) {
+    #back {
+        position: absolute;
+        display: block;
+        top: 2%;
+        left: 60%;
+    }
+    .cta span {
+        font-size: 14px;
+        letter-spacing: 0;
+        padding-right: 15px;
+        text-transform: uppercase;
+    }
+}

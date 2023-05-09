@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FerryAr/fa-pro/css/all.css">
+    <script src="https://kit.fontawesome.com/c08976f15f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/anime.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<style>
+    .loading {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+    }
+    
+    .loading.active {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .loader {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        border: 5px solid rgb(255, 17, 0);
+        border-radius: 50%;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        animation: rot5 1s infinite;
+    }
+    
+    @keyframes rot5 {
+        0% {
+            transform: rotate(0);
+        }
+        50% {
+            transform: rotate(180deg);
+            border-top-color: rgb(139, 46, 46);
+            border-bottom-color: rgb(243, 92, 33);
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<loading class="loading">
+    <div class="loader"></div>
+</loading>
+<script>
+    fetch('/').then(res => {
+        if (res.ok) {
+            document.querySelector('.loading').classList.add('active');
+        }
+
+    })
+</script>
+
+<body>
+
+    <Header>
+        <div class="top">
+            <div class="top_top">
+                <div class="top_left">
+                    <icon><img src="/img/logo.png" style="width: 40px;" /></icon>
+                </div>
+
+                <div class="top_right">
+                    <search>
+                        <button class="search_btn"><i class="fa fa-search"></i></button>
+                    </search>
+                    <!-- <register><button type="button" class="btn">
+                            <strong>Đăng kí</strong>
+                            <div id="container-stars">
+                                <div id="stars"></div>
+                            </div>
+                        </button>
+                    </register> -->
+                    <% const activelog =cook%>
+
+                        <% if(Number(activelog)){ %>
+                            <form action="/logout" method="get">
+                                <logout><button type="submit" class="btn">
+                        <strong>logout</strong>
+                        <div id="container-stars">
+                            <div id="stars"></div>
+                        </div>
+                    </logout></form>
+                    <%    }else{ %>
+                    <login><a href="/dangnhap"><button type="button" class="btn">
+                        <strong>login</strong>
+                        <div id="container-stars">
+                            <div id="stars"></div>
+                        </div>
+                    </a>
+                    </login>
+                    <%   } %>
+
+
+
+                    </button>
+                                    </a>
+                                    </login>
+                </div>
+            </div>
+            <div class="top_bottom">
+                <form class="form" method="post" action="/search">
+                    <label for="search">
+                        <input required="" autocomplete="off" placeholder="Tìm kiếm truyện" id="search" type="text"/>
+                        <div class="icon" >
+                            <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="swap-on">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round"
+                                    stroke-linecap="round"></path>
+                            </svg>
+
+                             <button type="submit" class="swap-off">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                        </svg>
+
+                        </div>
+                        <button type="reset" class="close-btn">
+                            <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </label>
+
+                </form>
+            </div>
+        </div>
+
+        <ul id="print">
+            <script>
+                let searchResults = ``
+                document.querySelector('#search').addEventListener('input', function(e) {
+                    if (e.target.value.length > 0) {
+                        searchResults = e.target.value.toLowerCase();
+                        const dat = '<%=data.map(item=>item.tentruyen)%>'
+                        const mang = dat.split(',').filter(item => item.toLowerCase().includes(searchResults))
+
+                        let html = ``
+                        mang.forEach(item => {
+                            console.log(item)
+                            html += `<li><a class="block py-2 w-full" href="/anime/${item}">${item} </a></li>`
+                            document.getElementById('print').innerHTML = html
+                        })
+
+                    } else {
+                        html = '';
+                        document.getElementById('print').innerHTML = html
+                    }
+                })
+            </script>
+
+
+        </ul>
+        <div class="bottom  md:bg-orange-400">
+            <div class="bottom_list">
+                <ul class="bottom_list_ul md:flex ">
+                    <li class="list_hover">
+                        <a href="/">Trang chủ</a>
+                    </li>
+                    <li class="menu_hidden">
+                        <p>Thể loại<i class=" fa-solid fa-caret-down"></i></p>
+                        <ul class="ulc2">
+                            <%theloai.forEach(item=>{%>
+                                <li>
+                                    <a href="/theloai/<%=item.listtl%>">
+                                        <%=item.listtl %>
+                                    </a>
+                                </li>
+                                <%  })%>
+                        </ul>
+                    </li>
+
+                    <%if(Number(cook)){%>
+                        <li>
+                            <a href="/admin">Admin</a>
+                        </li>
+                        <% }%>
+                </ul>
+            </div>
+            <div class="bottom_opcl md:hidden">
+                <div class="opcl">
+                    <input class="label-check" id="label-check" type="checkbox">
+                    <label for="label-check" class="hamburger-label">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                        <label></label>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </Header>
+
+
+<%const data2 = data.filter(item=>item.tentruyen === name)%>'
+<% const mont = data2[0].mont%>
+<%const fillDate = new Date(Number(mont))%>
+<%const tacgia = tacgias.filter(item=> item.idtacgia === data2[0].idtacgia)%>
+<%console.log(tacgia);%>
+    <div class="anime">
+        <div class="anime_content">
+            <%=name%>
+        </div>
+    <div class="time">[Cập nhật lúc: <%=fillDate.getHours()%>:<%=fillDate.getMinutes()%> <%=fillDate.getDate()%>/<%=fillDate.getMonth()+1%>/<%=fillDate.getFullYear()%>]</div>
+        <img src="/imgs/<%=name%>/avatar/<%=avatar%>" />
+    </div>
+    <div class="description">
+        <ul>
+            <li class="authod"><div class="item"><i class="fa-solid fa-user"></i> </div><div><%=tacgia[0].tentacgia %></div></li>
+            <li class="status"><div class="item"><i class="fa-light fa-clipboard-list-check"></i> Tình trạng </div><div>Đang tiến hành</div></li>
+            <li class="categ"><div class="item"><i class="fa-solid fa-tag"></i> Thể loại</div><div><%=data2[0].theloai %></div></li>
+        </ul>
+    </div>
+   <div style="margin: 0 5%;">
+    <div>Danh sách chương --</div>
+    <div class="chap">Số chương</div>
+    <div  class="container_chap">
+        <% cha.forEach(item=>{%>
+            <a href="/animes/<%=name%>/<%=item%>">Tập <%=item%></a>
+            <%  }) %>
+    </div>
+   </div>
+
+   <footer>
+    <div class="container">
+
+        <div class="noi-dung about">
+            <h2 style="width: 270px;">Liên hện với Chúng Tôi để Up Truyện</h2>
+            <p>Milk truyện</p>
+            <ul class="social-icon">
+                <li><a href="https://www.facebook.com/MinhAn.Tii"><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </div>
+
+
+        <div class="noi-dung links">
+            <h2>Trang chủ web</h2>
+            <ul>
+                <li><a href="https://happynewyear.store/">happynewyear.store</a></li>
+            </ul>
+        </div>
+
+
+        <div class="noi-dung contact">
+            <h2>Thông Tin Liên Hệ</h2>
+            <ul class="info">
+                <li>
+                    <span><i class="fa fa-facebook"></i></span>
+                    <a href="https://www.facebook.com/MinhAn.Tii">Kun</a>
+                </li>
+                <li>
+                    <span><i class="fa fa-phone"></i></span>
+                  <a href="#">0376289872</a>
+
+
+                </li>
+                <li>
+                    <span><i class="fa fa-envelope"></i></span>
+                   <a href="#">cuongnovember2001@gmail.com</a>
+               </li>
+
+            </ul>
+        </div>
+
+    </div>
+</footer>
+            <script src="/js/anime.js"></script>
+            
+</body>
+
+</html>

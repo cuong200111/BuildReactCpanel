@@ -1,0 +1,24 @@
+ <div class="food_main_bottom">
+                <input type="file" id="push">
+                <img src="" alt="">
+            </div>
+            <script>
+                const put = document.getElementById('push')
+                const food_main_bottom= document.querySelector('.food_main_bottom img')
+                put.addEventListener('change', () => {
+                    const reader = new FileReader()
+                   
+                    reader.onload = (e) => {
+                        const base64 = window.btoa(e.target.result)
+                        food_main_bottom.setAttribute('src',`data:image/png;base64,${base64}`)
+                    }
+
+                    reader.readAsBinaryString(put.files[0])
+
+                
+                    document.addEventListener('DOMContentLoaded',()=>{
+
+                    })
+                })
+
+            </script>
