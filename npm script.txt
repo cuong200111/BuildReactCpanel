@@ -1,0 +1,1 @@
+"start": "npm i && react-scripts start --ignore-engines" chạy và bỏ qua yêu cầu phiên bản package phù hợp với node
