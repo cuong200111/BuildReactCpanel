@@ -12,3 +12,16 @@
       document.removeEventListener('click',handlePopup)
     }
   },[])
+
+
+ const handleImgClick = (e) => {
+      const popups = document.querySelectorAll('.exerciseContainer_popup')
+      
+      for (const popup of popups) {
+        if (popup.contains(e.target)) {
+          return
+        }
+      }
+   
+      setactiv(-1)
+    }
