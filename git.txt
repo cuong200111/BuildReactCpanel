@@ -9,3 +9,5 @@ git push -u origin main
 git remote add origin https://github.com/cuong200111/BuildReactCpanel.git
 git branch -M main
 git push -u origin main
+
+git merge <branch_name> --allow-unrelated-histories
