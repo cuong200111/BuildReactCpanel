@@ -1,0 +1,4 @@
+Bạn có thể sử dụng câu lệnh sau để tắt tiến trình này:
+taskkill /PID 7776 /F
+Sử dụng lệnh netstat để liệt kê tất cả các kết nối đang mở. Chạy câu lệnh sau để tìm tiến trình đang sử dụng cổng 44444:
+netstat -ano | findstr :44444
