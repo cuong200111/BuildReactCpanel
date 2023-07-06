@@ -1,0 +1,2 @@
+expo eject
+expo init
