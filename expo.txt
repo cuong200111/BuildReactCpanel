@@ -1,2 +1,4 @@
 expo eject
 expo init
+
+npx expo i --check
