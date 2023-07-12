@@ -1,1 +1,7 @@
 "start": "npm i && react-scripts start --ignore-engines" chạy và bỏ qua yêu cầu phiên bản package phù hợp với node
+
+
+
+npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+
+npm i css-loader style-loader --save-dev
