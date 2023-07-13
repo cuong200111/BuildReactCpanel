@@ -6,3 +6,9 @@ netstat -ano | findstr :44444
 
 tắt các tiến trình của ứng dụng 
 taskkill /F /IM code.exe
+
+
+
+
+echo doskey cds=did $* >> C:\Windows\System32\mycommands.bat Tạo file chứa gõ tắt cho command
+reg add "HKLM\SOFTWARE\Microsoft\Command Processor" /v AutoRun /t REG_EXPAND_SZ /d ^%SystemRoot^%\system32\mycommands.bat /f  cấu hình global đó cho toàn pc
